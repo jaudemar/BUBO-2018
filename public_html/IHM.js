@@ -1,6 +1,6 @@
 $(function() {
     $('#tableau').on('click','tr', ClicTableau);
-    $('#ChangMod').on('click',genererTableau);
+    $('#Raffraichir').on('click',debug);
     $('#nouveau').on('click',Nouveau);
     $('#modifier').on('click', Modifier);
     $('#supprimer').on('click', Supprimer);
@@ -194,6 +194,8 @@ function BoutonEnregistrer()
             $('#modifier').prop('disabled', true);
             $('#modifier').button('refresh');
 
+            $('#Raffraichir').prop('disabled', true); //dégriser le bouton raffraichir
+            $('#Raffraichir').button('refresh');
 
             $('#donne0').val('');
             $('#donne1').val('');
@@ -207,15 +209,15 @@ function BoutonEnregistrer()
 function ChangerMode() {
     
     
-        if($('#ChangMod').val() == 'Mode Revue'){
+       /* if($('#Raffraichir').val() == 'Mode Revue'){
             $('.ui-content').css("background-color", "blue");    
-            $('#ChangMod').val('Mode Enregistrement');
+            $('#Raffraichir').val('Mode Enregistrement');
         }else{
-            $('#ChangMod').val('Mode Revue');
+            $('#Raffraichir').val('Mode Revue');
             $('.ui-content').css("background-color", "#FCE2E2");    
         }
-        $('#ChangMod').button('refresh');
-        return;    
+        $('#Raffraichir').button('refresh');
+        return;    */
 };
 
 function ClicTableau () {
@@ -277,6 +279,9 @@ function Nouveau() {
             $('#modifier').prop('disabled', true); //griser le bouton modifier  
             $('#modifier').button('refresh');
 
+            $('#Raffraichir').prop('disabled', true); //griser le bouton raffraichir
+            $('#Raffraichir').button('refresh');
+            
             degriserChamps(); //On degrise les champs
 
             $('#tab2').attr('class', 'ui-disabled ui-listview'); //On grise le tableau
@@ -290,6 +295,10 @@ function Nouveau() {
 
             $('#nouveau').prop('value', 'Nouveau'); //On repasse sa valeur a "Nouveau"
             $('#nouveau').button('refresh');
+            
+            $('#Raffraichir').prop('disabled', false); //dégriser le bouton raffraichir
+            $('#Raffraichir').button('refresh');
+
 
             griserChamps(); //On grise les champs
 	}
